@@ -5,7 +5,7 @@ import java.util.List;
 import com.edu.final_exam.model.Satellite;
 
 public record AstronautResponseDTO(
-    Long Id,
+    Long astronautId,
     String firstName,
     String lastName,
     Integer experienceYears,

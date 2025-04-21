@@ -28,17 +28,25 @@ public class AstronautServiceImpl implements AstronautService {
     }
 
     public AstronautResponseDTO createAstronaut(AstronautRequestDTO dto) {
-    List<Satellite> satellites = new ArrayList<>(satelliteRepositery.findAllById(dto.satelliteIds()));
+        List<Satellite> satellites = new ArrayList<>(satelliteRepositery.findAllById(dto.satelliteIds()));
 
         // validate all IDs are found
-        if (satellites.size() != dto.satelliteIds().size()) {
+        if (satellites.size() != dto.satellites().size()) {
             throw new IllegalArgumentException("One or more satellite IDs are invalid");
         }
-
-        Astronaut astronaut = astronautMapper.astronautRequestToAstronaut(dto);
-        astronaut.setSatellites(satellites);
-
-        astronutRepositery.save(astronaut);
-        return astronautMapper.astronautToResponseDTO(astronaut);
+        
+        // Astronaut astronaut = new Astronaut();
+        // astronaut.setFirstName(dto.firstName());
+        // astronaut.setLastName(dto.astName());
+        // astronaut.setOrbitType(dto.orbitType());
+        // astronaut.setOrbitType(dto.getOrbitType());
+        // astronaut.setSatellites(satellites);
+        
+        // astronutRepositery.save(astronaut);
+        
+        // // manually map to response DTO
+        // AstronautResponseDTO responseDTO = new AstronautResponseDTO();
+        // responseDTO.setId(astronaut.getId());
+        // responseDTO.setName(astronaut.get
     }
 }
